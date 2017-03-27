@@ -7,8 +7,8 @@
 <section id="admin">
 <div class="container container-fluid">
   <header id="admin-header">
-    <h2>Easy-Ride Users</h2>
-    <p>All of the easy-ride users are listed below. </p>
+    <h2>SingaPool Users</h2>
+    <p>All of the SingaPool users are listed below. </p>
     <a href="/register.php"><i class='icon-plus'></i> Add New User</a>
   </header>
   <table class="table table-bordered table-hover admin-users_view" id="users_view-table">
@@ -112,6 +112,7 @@
 </script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
 <script src="js/lib/underscore.min.js"></script>
+<script data-main="js/index.js" src="js/require.js"></script>
 <script src="js/admin_users_view.js"></script>
 <?php else: ?>
   <div class="well ds-component ds-hover container-narrow" data-componentid="well1">

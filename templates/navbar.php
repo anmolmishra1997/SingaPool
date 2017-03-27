@@ -48,7 +48,11 @@ function user_status() {
         echo '<ul class="nav pull-right"><li><a href="/functions/logout.php">Logout</a></li></ul>';
         echo '<p class="navbar-text pull-right" id="logged-in">';
         $first_name = $_SESSION['first_name'];
-        echo "Logged in as $first_name.</p>";
+        $image = $_SESSION['image'];
+        echo "Logged in as $first_name.";
+        if (!is_null($image))
+        echo "<img src = ../img/$image width=20 height=30>";
+        echo "</p>";
     } else {
         global $not_logged_in;
         echo $not_logged_in;
@@ -65,7 +69,7 @@ function user_status() {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="brand" href="/index.php">Easy Ride</a>
+      <a class="brand" href="/index.php">SingaPool</a>
       <div class="nav-collapse collapse">
         <ul class="nav">
           <?php render_nav_bar(); ?>

@@ -31,6 +31,9 @@ if (empty($_POST)) {
 
     // Copy over non-required fields
     $user_data['drivers_license_id'] = $_POST['register-drivers-license-id'];
+    $target_dir ="img/";
+    move_uploaded_file($_FILES["register-image"]["tmp_name"], "$target_dir".$_FILES["register-image"]["name"]);
+    $user_data['image'] = $_FILES["register-image"]["name"];
 
     if ($missing_fields) {
         $status = 'Error!';

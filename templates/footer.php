@@ -1,5 +1,5 @@
 <footer>
-	<p>&copy; Easy Ride 2012</p>
+	<p>&copy; SingaPool 2017</p>
 </footer>
 </body>
 </html>

@@ -17,7 +17,8 @@ $user_table_definition = USER_TABLE."
     email_address VARCHAR(128) NOT NULL UNIQUE,
     drivers_license_id VARCHAR(64),
     gender BYTEA NOT NULL,
-    password VARCHAR(64) NOT NULL
+    password VARCHAR(64) NOT NULL,
+    image VARCHAR(64)
 )";
 
 // require_once 'setup.php';
@@ -52,6 +53,7 @@ function authenticate_user($email, $password) {
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['email_address'] = $row['email_address'];
             $_SESSION['first_name'] = $row['first_name'];
+            $_SESSION['image'] = $row['image'];
             return $row;
         } else {
             return NULL;
@@ -111,20 +113,23 @@ function add_user($data) {
     $drivers_license_id = functions\sanitize_string($data['drivers_license_id']);
     $gender = functions\sanitize_string($data['gender']);
     $password = encrypt_password($data['password']);
+    $image = functions\sanitize_string($data['image']);
     $query = "INSERT INTO $user_table (
             first_name,
             last_name,
             email_address,
             drivers_license_id,
             gender,
-            password
+            password,
+            image
         ) VALUES (
             '$first_name',
             '$last_name',
             '$email_address',
             '$drivers_license_id',
             '$gender',
-            '$password')";
+            '$password',
+            '$image')";
     if (pg_query($connection, $query)) return true;
     error_log("Failed to create user: " . pg_last_error());
     return false;
@@ -191,7 +196,7 @@ function delete_user($user_id){
  * @return row the user row in the database without password, NULL otherwise.
  */
 function get_user($id) {
-	global $connection;
+    $connection = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=postgres") or die('Could not connect: ' . pg_last_error());
     $s_id = functions\sanitize_string($id);
     $user_table = USER_TABLE;
     $query = "SELECT id,
@@ -224,7 +229,7 @@ function get_all_users(){
     if ($query_result) {
         for ($i = 0; $i < $num_rows ; ++$i) {
             $row = pg_fetch_assoc($query_result);
-            $rows[] = process_trip_row($row);
+            $rows[] = process_user_row($row['id']);
         }
     }
     return $rows;

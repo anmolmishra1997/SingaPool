@@ -9,8 +9,8 @@ require [
         constructor: ->
             # Google Maps Options
             @mapOptions =
-                center: new google.maps.LatLng(51.517099, -0.146084)
-                zoom: 12
+                center: new google.maps.LatLng(1.352083, 103.819836)
+                zoom: 11
                 mapTypeId: google.maps.MapTypeId.ROADMAP
 
             # Initialize Google Maps

@@ -12,9 +12,9 @@ require(['components/map-route', 'components/input/date-time', 'components/input
 
       var _this = this;
       this.mapOptions = {
-        center: new google.maps.LatLng(51.517099, -0.146084),
-        zoom: 12,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+    	        center: new google.maps.LatLng(1.352083, 103.819836),
+    	        zoom: 11,
+    	        mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       this.map = new google.maps.Map($('#map_canvas')[0], this.mapOptions);
       this.departure = new DateTime($('#share-departure'), $('#share-departure-date'), $('#share-departure-time'));

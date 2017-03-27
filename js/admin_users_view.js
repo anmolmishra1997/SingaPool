@@ -46,7 +46,7 @@ jQuery(function() {
         _this = this;
       data = JSON.parse(json);
       console.log(data);
-      users_view = data.users_view;
+      users_view = data.users;
       if (users_view.length === 0) {
         return this.statusLoader.fadeOut(500, function() {
           return _this.statusMsg.fadeIn(500);

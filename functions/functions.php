@@ -1,7 +1,7 @@
 <?php
 namespace functions;
 
-$appname = 'SingaPoola';
+$appname = 'SingaPool';
 $dbhost = 'localhost';
 $dbname = 'postgres';
 $dbuser = 'postgres';

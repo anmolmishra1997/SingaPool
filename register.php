@@ -3,7 +3,7 @@ include 'templates/head.php';
 ?>
 <div class="container-narrow">
   <!-- Main hero unit for a primary marketing message or call to action -->
-  <form class="form-horizontal well" id="register"  method="post" action="register_post.php">
+  <form class="form-horizontal well" id="register"  method="post" action="register_post.php" enctype="multipart/form-data">
     <fieldset>
       <legend>Registration Form</legend>
       
@@ -61,6 +61,14 @@ include 'templates/head.php';
         <div class="controls">
           <label class="radio"><input type="radio" value="male" name="register-gender" id="register-male">Male</label>
           <label class="radio"><input type="radio" value="female" name="register-gender" id="register-female">Female</label>
+        </div>
+      </div>
+
+      <!--  Image -->
+      <div class="control-group">
+        <label class="control-label" for="register-image">Image</label>
+        <div class="controls">
+          <input type="file" class="input-xlarge" id="register-image" name="register-image">
         </div>
       </div>
     

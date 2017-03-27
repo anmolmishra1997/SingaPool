@@ -21,8 +21,8 @@ require(['components/map-route', 'components/input/date-picker', 'components/inp
 
       var _this = this;
       this.mapOptions = {
-        center: new google.maps.LatLng(51.517099, -0.146084),
-        zoom: 12,
+        center: new google.maps.LatLng(1.352083, 103.819836),
+        zoom: 11,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       this.map = new google.maps.Map($('#map_canvas')[0], this.mapOptions);
